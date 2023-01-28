@@ -2,8 +2,8 @@
 title: discord.py 라이브러리로 디스코드 봇 만들기
 author: gksdygks2124
 date: 2023-01-25 14:55:00 +0900
-categories: [Test, Test1]
-tags: [test, github]
+categories: [Python, Discord Bot]
+tags: [discord.py, 디스코드 봇]
 ---
 ## 프로젝트 계획
 디스코드 서버에서 유저들의 교류 및 활동을 더 활발하게 하고, 편의성을 제공하기 위해서 디스코드 내부에 명령어를 수행하는 봇을 제작.  
