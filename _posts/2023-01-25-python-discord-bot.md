@@ -13,7 +13,8 @@ tags: [test, github]
 ## 기능
 - LOL / TFT 전적검색
 - LOL 챔피언 정보(스팩, 룬, 빌드...) 검색
-- 디스코드 내에 미니 RPG 게임 서비스 제공(레벨, 코인, 낚시, 도박 등 다양한 콘텐츠 제공 + 추후 다른 컨텐츠도 업데이트 예정)
+- 디스코드 내에 미니 RPG 게임 서비스 제공(레벨, 코인, 낚시, 도박 등 다양한 콘텐츠 제공)
+- 추후 다른 컨텐츠도 업데이트 예정...
 <br>
 <br>
 
@@ -57,9 +58,9 @@ from lib.search_tft_userInfo import search_tft_userInfo
 with open("config.toml", mode="rb") as file:
     data = tomllib.load(file)
 
-    DISCORD_TOKEN = data["API_KEY"]["DISCORD_TOKEN"]
-    RIOT_LOL_TOKEN = data["API_KEY"]["RIOT_LOL_TOKEN"]
-    RIOT_TFT_TOKEN = data["API_KEY"]["RIOT_TFT_TOKEN"]
+    DISCORD_TOKEN = data["DISCORD_API_KEY"]["DISCORD_TOKEN"]
+    RIOT_LOL_TOKEN = data["RIOT_API_KEY"]["RIOT_LOL_TOKEN"]
+    RIOT_TFT_TOKEN = data["RIOT_API_KEY"]["RIOT_TFT_TOKEN"]
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -72,11 +73,11 @@ async def on_ready():
 
 
 # ================== Commands ==================
-@bot.command(name='롤전적검색')
+@bot.command(name = '롤전적검색')
 async def cmd6(ctx, arg):
     await ctx.send(embed = search_lol_userInfo(arg, RIOT_LOL_TOKEN))
 
-@bot.command(name= "롤체전적검색")
+@bot.command(name = "롤체전적검색")
 async def cmd7(ctx, arg):
     await ctx.send(embed = search_tft_userInfo(arg, RIOT_TFT_TOKEN))
 
@@ -91,8 +92,30 @@ bot.run(DISCORD_TOKEN)
 ```
 <br>
 
-- 1) <span style="color:purple">import</span>(line1~8): 이 부분의 코드도 디스코드 라이브러리(디스코드 서버와 관련된 모든 작업을 담당)와 커스텀 라이브러리(디스코드를 통해 명령어 호출시 파이썬에서 수행되는 작업을 담당) 두 부분으로 나눌 수 있다. 
-- 2) <span style="color:purple">with</span>(line11~16): 이 부분은 디스코드 봇을 만들 때 사용된 API_KEY들이 있는데, 이것을 GitHub에 그대로 올리면 안 된다. 따라서 위에서 import한 tomllib 외장 라이브러리로 config.toml에 API_KEY를 담고, .gitignore에 해당 파일을 등록하는 형식으로 외부에 API_KEY를 노출하는 것을 방지하는 코드이다.
-- 3) <span style="color:purple">intent</span>(line19~21): discord.dev에서 설정한 디스코드 봇의 intent(기본적으로 봇이 특정 버킷이나 이벤트를 받도록 해주는 기능)와 상호작용 하는 코드
-- 4) <span style="color:skyblue">@bot_event</span>(line24~26, last line): 봇 토큰을 토대로 봇을 최종적으로 실행하는 코드(last line), 봇이 정상적으로 실행되면 실행되는 코드(여기서는 콘솔에 print하는 코드를 작성했지만, 다른 작업을 해도 된다)
-- 5) <span style="color:green">Commands</span>(주석부분): 디스코드 텍스트 채팅 채널에서 특정 명렁어를 감지했을 때 수행하는 작업을 담당하는 코드
+1) <span style="color:purple">import</span>(line1~8): 이 부분의 코드도 디스코드 라이브러리(디스코드 서버와 관련된 모든 작업을 담당)와 커스텀 라이브러리(디스코드를 통해 명령어 호출시 파이썬에서 수행되는 작업을 담당) 두 부분으로 나눌 수 있다.
+
+<br>
+
+2) <span style="color:purple">with</span>(line11~16): 이 부분은 디스코드 봇을 만들 때 사용된 API_KEY들이 있는데, 이것을 GitHub에 그대로 올리면 안 된다. 따라서 위에서 import한 tomllib 외장 라이브러리로 config.toml에 API_KEY를 담고, .gitignore에 해당 파일을 등록하는 형식으로 외부에 API_KEY를 노출하는 것을 방지하는 코드이다. &nbsp; ```var = data['TAG_NAME']['KEY_NAME']```형태로 config.toml파일에서 키값을 불러올 수 있다.
+```toml
+# config.toml 작성하는 방법
+[tag_name]
+key_name = 'value'
+
+# Example(가짜 키값입니다)
+[RIOT_API_KEY]
+RIOT_TFT_TOKEN = "RGAPI-0a53azz5-9a8u-4x7f-882f-9464109ad52x"
+```
+<br>
+
+3) <span style="color:purple">intent</span>(line19~21): discord.dev에서 설정한 디스코드 봇의 <a href="https://discordpy-ko.github.io/intents.html">intent</a>(기본적으로 봇이 특정 버킷이나 이벤트를 받도록 해주는 기능)와 상호작용 하는 코드
+    - 여기서 사용되는 매개변수가 있는 <span style="color:skyblue">@데코레이터</span>에 관한 설명은 <a href="https://dojang.io/mod/page/view.php?id=2429">링크</a>를 참조
+
+<br>
+
+4) <span style="color:skyblue">@bot_event</span>(line24~26, line44): 봇 토큰을 토대로 봇을 최종적으로 실행하는 코드(last line), 봇이 정상적으로 실행되면 실행되는 코드(여기서는 콘솔에 print하는 코드를 작성했지만, 다른 작업을 해도 된다)
+    - 여기서 사용되는 <span style="color:skyblue">@데코레이터</span>에 관한 설명은 <a href="https://dojang.io/mod/page/view.php?id=2427">링크</a>를 참조
+
+<br>
+
+5) <span style="color:green"># Commands</span>(주석부분): 디스코드 텍스트 채팅 채널에서 특정 명렁어를 감지했을 때 수행하는 작업을 담당하는 코드
