@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://yenarue.github.io/sitemap.xml

@@ -1,10 +1,10 @@
 ---
-permalink: /robots.txt
-# The robots rules
+permalink: /s.txt
+# The s rules
 ---
 
 User-agent: *
 
-Disallow: /norobots/
+Disallow: /nos/
 
 Sitemap: {{ '/sitemap.xml' | absolute_url }}
