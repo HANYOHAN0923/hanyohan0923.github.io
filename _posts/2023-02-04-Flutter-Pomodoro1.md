@@ -9,21 +9,6 @@ sitemap:
   changefreq: daily
   priority : 1.0
 ---
-```dart
-// 아래의 옵션을 설정해야할 때만 import해주면 된다
-import 'package:flutter_native_splash/flutter_native_splash.dart';
-
-void main() {
-    // Pass the preserve() method the value returned from WidgetsFlutterBinding.ensureInitialized() to keep the splash on screen.
-    WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-    FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-
-    runApp(const MyApp());
-
-    // when app has initialized, make a call to remove() to remove the splash screen.
-    FlutterNativeSplash.remove();
-}
-```
 > UI Designed by Omar Sherif(https://www.behance.net/iomarsherif)
 > Project UIKIT: https://www.behance.net/gallery/98918603/POMO-UIKIT?tracking_source=search_projects%7Cpomo+uikit
 
