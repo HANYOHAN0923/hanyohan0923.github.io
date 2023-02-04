@@ -9,7 +9,8 @@ sitemap:
   changefreq: daily
   priority : 1.0
 ---
-> UI Designed by Omar Sherif(https://www.behance.net/iomarsherif)
+> 이 앱에 사용된 디자인은 아래 사이트에서 가져왔습니다  
+> UI Designed by Omar Sherif(https://www.behance.net/iomarsherif)  
 > Project UIKIT: https://www.behance.net/gallery/98918603/POMO-UIKIT?tracking_source=search_projects%7Cpomo+uikit
 
 <br>
