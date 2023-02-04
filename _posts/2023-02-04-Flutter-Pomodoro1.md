@@ -193,7 +193,7 @@ pubspec.yaml에 작성 / root디렉토리에 yaml파일 생성 했을 경우:
 flutter pub run flutter_native_splash:create
 ```
 
-yaml파일을 특정 위치에 저장했을 경우
+yaml파일을 특정 위치에 저장했을 경우:
 ```shell
 flutter pub run flutter_native_splash:create --path=path/to/my/file.yaml
 ```
@@ -202,7 +202,9 @@ flutter pub run flutter_native_splash:create --path=path/to/my/file.yaml
 
 ### <b>앱 초기화 설정하기</b>
 앱을 실행했을 때 서버로부터 받아올 것이 없거나, 적어서 처리속도가 매우 빨라서 그저 브랜딩 목적의 스플래쉬 스크린이라면 위의 설정만으로도 충분하지만, 서버로부터 받아오는 양이 많아 스플래쉬 스크린이이 앱이 초기화될 때까지 유지되야다면 `preserve()`와 `remove()`를 main.dart의 메인함수에서 사용함으로써 스플래쉬 화면을 수동 유지 및 제거할 수 있다.
+
 ```dart
+// 아래의 옵션을 설정해야할 때만 import해주면 된다
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
@@ -215,6 +217,7 @@ void main() {
     // when app has initialized, make a call to remove() to remove the splash screen.
     FlutterNativeSplash.remove();
 }
+
 ```
 
 <br>
