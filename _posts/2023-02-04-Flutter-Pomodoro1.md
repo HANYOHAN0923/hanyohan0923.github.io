@@ -1,14 +1,29 @@
 ---
 title: Flutter POMODORO App 만들기 (1) - Flutter 앱 시작화면/스플래시 스크린 만들기
 author: gksdygks2124
-date: 2023-02-04 17:01:00 +0900
+date: 2023-02-04 18:01:00 +0900
 categories: [Flutter, POMODORO]
 tags: [flutter, flutter_splash_native, flutter splash screen, flutter 시작화면]
-lastmode: 2023-02-04 17:01:00
+lastmode: 2023-02-04 18:01:00
 sitemap:
   changefreq: daily
   priority : 1.0
 ---
+```dart
+// 아래의 옵션을 설정해야할 때만 import해주면 된다
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+
+void main() {
+    // Pass the preserve() method the value returned from WidgetsFlutterBinding.ensureInitialized() to keep the splash on screen.
+    WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+    FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
+    runApp(const MyApp());
+
+    // when app has initialized, make a call to remove() to remove the splash screen.
+    FlutterNativeSplash.remove();
+}
+```
 > UI Designed by Omar Sherif(https://www.behance.net/iomarsherif)
 > Project UIKIT: https://www.behance.net/gallery/98918603/POMO-UIKIT?tracking_source=search_projects%7Cpomo+uikit
 
@@ -207,6 +222,7 @@ flutter pub run flutter_native_splash:create --path=path/to/my/file.yaml
 // 아래의 옵션을 설정해야할 때만 import해주면 된다
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
+void main() {
     // Pass the preserve() method the value returned from WidgetsFlutterBinding.ensureInitialized() to keep the splash on screen.
     WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
     FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
@@ -215,7 +231,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 
     // when app has initialized, make a call to remove() to remove the splash screen.
     FlutterNativeSplash.remove();
-
+}
 ```
 
 <br>
