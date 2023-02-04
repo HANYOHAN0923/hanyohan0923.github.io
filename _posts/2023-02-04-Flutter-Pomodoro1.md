@@ -11,3 +11,4 @@ sitemap:
 ---
 
 ## <b>스플래시 스크린은 꼭 필요할까?</b>
+![flutter_splash_screen](https://user-images.githubusercontent.com/92556048/216756893-988e7e0b-98d0-4db0-8a47-ce64387abffe.gif)
