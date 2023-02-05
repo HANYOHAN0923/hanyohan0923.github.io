@@ -9,7 +9,6 @@ sitemap:
   changefreq: daily
   priority : 1.0
 ---
-> 이 앱에 사용된 디자인은 아래 사이트에서 가져왔습니다  
 > UI Designed by Omar Sherif(https://www.behance.net/iomarsherif)  
 > Project UIKIT: https://www.behance.net/gallery/98918603/POMO-UIKIT?tracking_source=search_projects%7Cpomo+uikit
 
@@ -187,7 +186,7 @@ flutter_native_splash:
 <br>
 
 ### <b>패키지 실행하기</b>
-설정이 끝났으면 다른 서드 파트 패키지와 다르게 따로 터미널에서 명렁어로 해당 패키지를 실행시켜서 프로젝트 내부에서 활성화를 필요로 한다. 위 명령어를 입력 후 터미널에서 오류 없이 잘 실행했으면 별다른 설정 없이 앱을 실행했을 때 스플래쉬 화면이 등장하는 것을 볼 수 있다. 기본적으로 Flutter Framework에서 첫 프레임을 화면에 그릴 때 스플래쉬 스크린은 자동적으로 제거된다.
+설정이 끝났으면 다른 서드 파트 패키지와 다르게 따로 터미널에서 명렁어로 해당 패키지를 실행시켜서 프로젝트 내부에서 활성화를 필요로 한다. 위 명령어를 입력 후 터미널에서 오류 없이 잘 실행했으면 별다른 설정 없이 앱을 실행했을 때 스플래쉬 스크린이 등장하는 것을 볼 수 있다. 기본적으로 Flutter Framework에서 첫 프레임을 화면에 그릴 때 스플래쉬 스크린은 자동적으로 제거된다.
 
 pubspec.yaml에 작성 / root디렉토리에 yaml파일 생성 했을 경우:
 ```shell
@@ -202,7 +201,7 @@ flutter pub run flutter_native_splash:create --path=path/to/my/file.yaml
 <br>
 
 ### <b>앱 초기화 설정하기</b>
-앱을 실행했을 때 서버로부터 받아올 것이 없거나, 적어서 처리속도가 매우 빨라서 그저 브랜딩 목적의 스플래쉬 스크린이라면 위의 설정만으로도 충분하지만, 서버로부터 받아오는 양이 많아 스플래쉬 스크린이이 앱이 초기화될 때까지 유지되야다면 `preserve()`와 `remove()`를 main.dart의 메인함수에서 사용함으로써 스플래쉬 화면을 수동 유지 및 제거할 수 있다.
+앱을 실행했을 때 서버로부터 받아올 것이 없거나, 적어서 처리속도가 매우 빨라서 그저 브랜딩 목적의 스플래쉬 스크린이라면 위의 설정만으로도 충분하지만, 서버로부터 받아오는 양이 많아 스플래쉬 스크린이 앱이 초기화될 때까지 유지되야다면 `preserve()`와 `remove()`를 main.dart의 메인함수에서 사용함으로써 스플래쉬 화면을 수동 유지 및 제거할 수 있다.
 
 ```dart
 // 아래의 옵션을 설정해야할 때만 import해주면 된다
