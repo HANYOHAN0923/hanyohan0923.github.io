@@ -12,6 +12,8 @@ sitemap:
 ## <b> Related to Widget </b>
 - [error: The argument type 'WidgetName' can't be assigned to the parameter type 'PreferredSizeWidget'](https://stackoverflow.com/questions/52678469/the-appbardesign-cant-be-assigned-to-the-parameter-type-preferredsizewidget)
 
+- [error: The argument type 'AppBarDesign' can't be assigned to the parameter type 'PreferredSizeWidget'.](https://stackoverflow.com/questions/52678469/the-appbardesign-cant-be-assigned-to-the-parameter-type-preferredsizewidget)
+
 <br>
 <br>
 
