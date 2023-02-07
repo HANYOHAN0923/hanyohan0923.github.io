@@ -3,7 +3,7 @@ title: Python 데코레이터
 author: gksdygks2124
 date: 2023-02-07 09:55:00 +0900
 categories: [Python]
-tags: [python decorator, @decorator, 파이썬 데코레이터]
+tags: [python decorator, decorator, 파이썬 데코레이터]
 lastmode: 2023-02-07 09:55:00
 sitemap:
   changefreq: daily
