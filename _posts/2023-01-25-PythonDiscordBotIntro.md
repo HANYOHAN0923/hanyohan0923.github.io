@@ -117,7 +117,7 @@ RIOT_TFT_TOKEN = "RGAPI-0a53azz5-9a8u-4x7f-882f-9464109ad52x"
 <br>
 
 4) <span style="color:skyblue">@bot_event</span>(line24~26, line44): 봇 토큰을 토대로 봇을 최종적으로 실행하는 코드(last line), 봇이 정상적으로 실행되면 실행되는 코드(여기서는 콘솔에 print하는 코드를 작성했지만, 다른 작업을 해도 된다)
-    - 여기서 사용되는 <span style="color:skyblue">@데코레이터</span>에 관한 설명은 <a href="https://dojang.io/mod/page/view.php?id=2427">링크</a>를 참조
+    - 여기서 사용되는 <span style="color:skyblue">@데코레이터</span>에 관한 설명은 <a href="https://hanyohan0923.github.io/posts/PythonDecorator/">링크</a>를 참조
 
 <br>
 
