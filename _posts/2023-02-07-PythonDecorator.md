@@ -12,9 +12,6 @@ sitemap:
 > https://dojang.io/mod/page/view.php?id=2428
 
 ## <b>@decorator 사용, 미사용의 차이</b>
-
-<br>
-
 ### <b>@decorator 미사용</b>
 
 ```python
@@ -74,11 +71,10 @@ world END
 '''
 ```
 
-## <b>매개변수와 반환값을 처리하는 @decorator</b>
-
 <br>
 
-### <b>매개변수와 반환값을 처리하는 @decorator</b>
+## <b>인수, 매개변수와 반환값을 처리하는 @decorator</b>
+### <b>인수와 반환값을 처리하는 @decorator</b>
 ```python
 def trace(func):          # 호출할 함수를 매개변수로 받음
     def wrapper(a, b):    # 호출할 함수 add(a, b)의 매개변수와 똑같이 지정
@@ -100,7 +96,7 @@ add(a=10, b=20) -> 30
 
 <br>
 
-### <b>가변 함수 인수 @decorator</b>
+### <b>가변 인수 함수 @decorator</b>
 ```python
 def trace(func):                     # 호출할 함수를 매개변수로 받음
     def wrapper(*args, **kwargs):    # 가변 인수 함수로 만듦
@@ -130,7 +126,7 @@ get_min(args=(), kwargs={'x': 10, 'y': 20, 'z': 30}) -> 10
 
 <br>
 
-## <b>매개변수가 있는 @decorator</b>
+### <b>매개변수가 있는 @decorator</b>
 매개변수가 있는 데코레이터는 내부에 함수를 더 만들어야한다.
 ```python
 def is_multiple(x):              # 데코레이터가 사용할 매개변수를 지정
