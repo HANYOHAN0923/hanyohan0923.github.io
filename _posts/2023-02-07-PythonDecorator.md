@@ -1,5 +1,5 @@
 ---
-title: Python Decorator
+title: Python 데코레이터
 author: gksdygks2124
 date: 2023-02-07 09:55:00 +0900
 categories: [Python]
