@@ -1,10 +1,10 @@
 ---
 title: Flutter POMODORO App 만들기 (3) - Flutter Light/Dark Theme (다크모드, 라이트모드 만들기)
 author: gksdygks2124
-date: 2023-02-05 10:48:00 +0900
+date: 2023-02-07 23:58:00 +0900
 categories: [Flutter, POMODORO]
 tags: [flutter, light mode, dark mode, light dark mode toggle, theme chage]
-lastmode: 2023-02-05 10:48:00
+lastmode: 2023-02-07 23:58:00
 sitemap:
   changefreq: daily
   priority : 1.0
@@ -73,4 +73,174 @@ themeMode: ThemeMode.dart, // MaterialApp(darkTheme())을 사용
 
 <br>
 
-### <b></b>
+### <b>유저가 앱의 themeMode를 설정하는 toggle 버튼 만들기</b>
+
+<br>
+
+#### <b>main.dart</b>
+우선 main.dart의 `build()`가 직접 `GuideHomeScreen()`이나 `HomeScreen()`을 <span style="color:purple">return</span>하도록 코드를 수정한다. `MaterialApp()`에 있던 theme은 나중에 다시 쓸 것이다.
+```dart
+import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:pomodoro_app/screen/guide_main_screen.dart';
+import 'package:pomodoro_app/screen/home_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+void main() {
+  // OPTIONAL!!!
+  // Pass the preserve() method the value returned from WidgetsFlutterBinding.ensureInitialized() to keep the splash on screen.
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  runApp(const MyApp());
+  // when app has initialized, make a call to remove() to remove the splash screen.
+  FlutterNativeSplash.remove();
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  late SharedPreferences prefs;
+  bool firstRun = true;
+
+  void initPrefs() async {
+    prefs = await SharedPreferences.getInstance();
+    final isFirstRun = prefs.getBool('isFirstRun');
+    if (isFirstRun == false) {
+      setState(
+        () {
+          firstRun = false;
+        },
+      );
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    initPrefs();
+  }
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    if (firstRun) {
+      return GuideMainScreen();
+    }
+    return const HomeScreen();
+  }
+}
+```
+
+<br>
+
+#### <b>HomeScreen</b>
+```dart
+import 'package:flutter/material.dart';
+import 'package:pomodoro_app/widget/sidebar_widget.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  static final ValueNotifier<ThemeMode> themeNotifier =
+      ValueNotifier(ThemeMode.dark);
+
+  @override
+  Widget build(BuildContext context) {
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: themeNotifier,
+      builder: (_, ThemeMode currentMode, __) {
+        return MaterialApp(
+          title: 'Flutter Demo',
+          debugShowCheckedModeBanner: false,
+          theme: ThemeData(
+            brightness: Brightness.light,
+            scaffoldBackgroundColor: const Color(0xFFE7626C),
+            textTheme: const TextTheme(
+              displayLarge: TextStyle(
+                color: Color(0xFF232B55),
+              ),
+              displaySmall: TextStyle(
+                color: Color(0xFF232B55),
+              ),
+            ),
+            cardColor: const Color(0xFFF4EDDB),
+          ),
+          darkTheme: ThemeData(
+            brightness: Brightness.dark,
+            scaffoldBackgroundColor: const Color(
+              0xFF232B55,
+            ),
+            cardColor: const Color(0xFFF4EDDB),
+            textTheme: const TextTheme(
+              displayLarge: TextStyle(
+                color: Color(0xFFE7626C),
+              ),
+              displaySmall: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+          themeMode: currentMode,
+          home: Builder(
+            builder: (context) {
+              return Scaffold(
+                  appBar: AppBar(
+                    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                    elevation: 0,
+                    leading: Builder(
+                      builder: (context) => IconButton(
+                        onPressed: () => Scaffold.of(context).openDrawer(),
+                        icon: const Icon(
+                          Icons.menu_rounded,
+                          color: Color(0xFFF4EDDB),
+                        ),
+                      ),
+                    ),
+                    actions: [
+                      IconButton(
+                        icon: Icon(themeNotifier.value == ThemeMode.light
+                            ? Icons.dark_mode
+                            : Icons.light_mode),
+                        onPressed: () {
+                          print(Theme.of(context).scaffoldBackgroundColor);
+                          setState(
+                            () {
+                              themeNotifier.value =
+                                  themeNotifier.value == ThemeMode.light
+                                      ? ThemeMode.dark
+                                      : ThemeMode.light;
+                            },
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                  drawer: const SideBar(),
+                  backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                  body: const Center(
+                    child: Text("Hi"),
+                  ));
+            },
+          ),
+        );
+      },
+    );
+  }
+}
+
+```
+- (line12-13)
+https://api.flutter.dev/flutter/foundation/ValueNotifier-class.html
+https://velog.io/@tykan/Flutter-ValueNotifier-%EA%B0%84%EB%8B%A8%ED%95%98%EA%B2%8C-%EC%82%B4%ED%8E%B4%EB%B3%B4%EC%9E%90
+https://stackoverflow.com/questions/75394922/flutter-theme-dark-lights-theme-toggle-doesnt-work/75395035#75395035

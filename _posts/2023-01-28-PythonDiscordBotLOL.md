@@ -28,14 +28,32 @@ JSON의 데이터 저장방식은 Object라고 불리는 {} 안에&nbsp; ```key:
 ```
 <br>
 
-### <b>Python Json라이브러리로 JSON관리하기</b>
-- JSON Encoding: <span style="color:#cbac69">json.dumps()</span>
+#### <b>Python Json라이브러리로 JSON관리하기</b>
+- JSON Encoding: <span style="color:#cbac69">json.dumps()</span>  
+파이썬 객체를 직렬화된 <b>json 문자열</b>로 변환합니다.
 ```python
+import json
 
+json_encoding = json.dumps(['foo', {'bar': ('baz', None, 1.0, 2)}])
+print(json_encoding)        # ["foo", {"bar": ["baz", null, 1.0, 2]}]
+print(type(json_encoding))  # <class 'str'>
 ```
 
 <br>
 
-- JSON Decoding: <span style="color:#cbac69">json.loads()</span>
+- JSON Decoding: <span style="color:#cbac69">json.loads()</span>  
+json 문자열을 파싱해서 파이썬 객체로 변환시킵니다.
 ```python
+import json
+
+json_encoding = json.dumps(['foo', {'bar': ('baz', None, 1.0, 2)}])
+json_decoding = json.loads(json_encoding)
+print(json_decoding)        # ["foo", {"bar": ["baz", null, 1.0, 2]}]
+print(type(json_decoding))  # <class 'list'>
 ```
+
+<br>
+
+#### <b>dump()와 dumps, load()와 loads() 차이</b>
+- dump()는 파이썬 객체를 스트림 객체로 변환, dumps()는 json 문자열로 변환.
+- load()는 스트림 객체를 파이썬 객체로 변환, loads()는 json 문자열을 파이썬 객체로 변환.
