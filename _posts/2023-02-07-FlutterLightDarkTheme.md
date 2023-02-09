@@ -74,6 +74,8 @@ themeMode: ThemeMode.dart, // MaterialApp(darkTheme())을 사용
 <br>
 
 ### <b>유저가 앱의 themeMode를 설정하는 toggle 버튼 만들기</b>
+![flutter_theme_toggle](https://user-images.githubusercontent.com/92556048/217755444-a8b14f6a-09a6-4241-8800-3fa0c4d8ecd9.gif)
+
 
 <br>
 
