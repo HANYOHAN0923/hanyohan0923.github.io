@@ -30,7 +30,8 @@ JSON의 데이터 저장방식은 Object라고 불리는 {} 안에&nbsp; ```key:
 
 #### <b>Python Json라이브러리로 JSON관리하기</b>
 - JSON Encoding: <span style="color:#cbac69">json.dumps()</span>  
-파이썬 객체를 직렬화된 <b>json 문자열</b>로 변환합니다.
+파이썬 객체를 직렬화된 <b>json 문자열</b>로 변환합니다.  
+
 ```python
 import json
 
