@@ -3,7 +3,7 @@ title: Flutter POMODORO App 만들기 (3) - Flutter Light/Dark Theme (다크모�
 author: gksdygks2124
 date: 2023-02-07 23:58:00 +0900
 categories: [Flutter, POMODORO]
-tags: [flutter, light mode, dark mode, light dark mode toggle, theme chage]
+tags: [flutter, light mode, dark mode, light dark mode toggle, theme change, ValueListenableBuilder, ValueNotifier]
 lastmode: 2023-02-07 23:58:00
 sitemap:
   changefreq: daily
@@ -143,6 +143,8 @@ class _MyAppState extends State<MyApp> {
 
 #### <b>HomeScreen</b>
 ```dart
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:pomodoro_app/widget/sidebar_widget.dart';
 
@@ -197,44 +199,39 @@ class _HomeScreenState extends State<HomeScreen> {
           home: Builder(
             builder: (context) {
               return Scaffold(
-                  appBar: AppBar(
-                    backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                    elevation: 0,
-                    leading: Builder(
-                      builder: (context) => IconButton(
-                        onPressed: () => Scaffold.of(context).openDrawer(),
-                        icon: const Icon(
-                          Icons.menu_rounded,
-                          color: Color(0xFFF4EDDB),
-                        ),
+                appBar: AppBar(
+                  backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                  elevation: 0,
+                  leading: Builder(
+                    builder: (context) => IconButton(
+                      onPressed: () => Scaffold.of(context).openDrawer(),
+                      icon: const Icon(
+                        Icons.menu_rounded,
+                        color: Color(0xFFF4EDDB),
                       ),
                     ),
-                    actions: [
-                      IconButton(
-                        icon: Icon(themeNotifier.value == ThemeMode.light
-                            ? Icons.dark_mode
-                            : Icons.light_mode),
-                        onPressed: () {
-                          print(Theme.of(context).scaffoldBackgroundColor);
-                          setState(
-                            () {
-                              themeNotifier.value =
-                                  themeNotifier.value == ThemeMode.light
-                                      ? ThemeMode.dark
-                                      : ThemeMode.light;
-                            },
-                          );
-                        },
-                      ),
-                    ],
                   ),
-                  drawer: const SideBar(),
-                  backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-                  body: const Center(
-                    child: Text("Hi"),
-                  ));
-            },
-          ),
+                  actions: [
+                    IconButton(
+                      icon: Icon(themeNotifier.value == ThemeMode.light
+                          ? Icons.dark_mode
+                          : Icons.light_mode),
+                      onPressed: () {
+                        themeNotifier.value =
+                            themeNotifier.value == ThemeMode.light
+                                ? ThemeMode.dark
+                                : ThemeMode.light;
+                      },
+                    ),
+                  ],
+                ),
+                drawer: const SideBar(),
+                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+                body: Center(
+                  child: Text(
+                    "themeMode",
+                  ),
+                ),
         );
       },
     );
@@ -242,7 +239,15 @@ class _HomeScreenState extends State<HomeScreen> {
 }
 
 ```
-- (line12-13)
-https://api.flutter.dev/flutter/foundation/ValueNotifier-class.html
-https://velog.io/@tykan/Flutter-ValueNotifier-%EA%B0%84%EB%8B%A8%ED%95%98%EA%B2%8C-%EC%82%B4%ED%8E%B4%EB%B3%B4%EC%9E%90
-https://stackoverflow.com/questions/75394922/flutter-theme-dark-lights-theme-toggle-doesnt-work/75395035#75395035
+
+<br>
+
+#### <b>ValueNotifier</b>
+위의 코드에서 나온 `ValueNotifier`과 `ValueListenableBuilder`에 대해서 설명해보겠다.
+> ValueNotifier{: .filepath }은 ChangeNotifier를 상속받는 setState()없이 state 관리를 하는 클래스이다.
+{: .prompt-tip }
+
+`ValueNotifier`는 `ValueListenableBuilder()` 안에서 작동을 한다.
+
+- [ValueNotifier DOCS](https://api.flutter.dev/flutter/foundation/ValueNotifier-class.html)
+- [ValueListenableBuilder DOCS](https://api.flutter.dev/flutter/widgets/ValueListenableBuilder-class.html)

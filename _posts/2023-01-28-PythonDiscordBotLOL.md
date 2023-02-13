@@ -58,3 +58,6 @@ print(type(json_decoding))  # <class 'list'>
 #### <b>dump()와 dumps, load()와 loads() 차이</b>
 - dump()는 파이썬 객체를 스트림 객체로 변환, dumps()는 json 문자열로 변환.
 - load()는 스트림 객체를 파이썬 객체로 변환, loads()는 json 문자열을 파이썬 객체로 변환.
+
+
+이거 코드블럭 또 인식 안됨 오류남!!!!!!!!!!!!!!

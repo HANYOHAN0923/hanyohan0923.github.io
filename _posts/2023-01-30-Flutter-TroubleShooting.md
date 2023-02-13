@@ -14,6 +14,12 @@ sitemap:
 
 - [error: The argument type 'AppBarDesign' can't be assigned to the parameter type 'PreferredSizeWidget'.](https://stackoverflow.com/questions/52678469/the-appbardesign-cant-be-assigned-to-the-parameter-type-preferredsizewidget)
 
+- [error: Navigator operation requested with a context that does not include a Navigator. (1)](https://stackoverflow.com/questions/50124355/flutter-navigator-not-working)
+
+- [error: Navigator operation requested with a context that does not include a Navigator. (2)](https://stackoverflow.com/questions/44004451/navigator-operation-requested-with-a-context-that-does-not-include-a-navigator)
+
+- [error: Navigator operation requested with a context that does not include a Navigator. (3)](https://github.com/flutter/flutter/issues/15919)
+
 <br>
 <br>
 

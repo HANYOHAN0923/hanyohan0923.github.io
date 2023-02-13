@@ -187,7 +187,8 @@ class _MyAppState extends State<MyApp> {
 
 ### <b>guide_main_screen.dart</b>
 - `SmoothPageIndicator()`의 `effect`는 다양한 옵션을 갖고 있다. 모든 옵션들은 <a href="https://pub.dev/packages/smooth_page_indicator#effects">여기</a>에서 확인할 수 있다.
-- `skipTutorial()`은 듀토리얼을 스킵했을 때 SharedPreferences에 isFirstRun: false(KEY:VALUE 형태로 저장한다. 따라서 앱을 재실행했을 때 main.dart의 firstRun이 false의 값을 갖기 때문에 가이드 스크린이 아닌 홈 스크린이 출력된다. 마지막으로 이 함수는 SharedPreferences를 사용하기 때문에 비동기 처리를 한다.  
+- `skipTutorial()`은 듀토리얼을 스킵했을 때 SharedPreferences에 isFirstRun: false(KEY:VALUE 형태로 저장한다. 따라서 앱을 재실행했을 때 main.dart의 firstRun이 false의 값을 갖기 때문에 가이드 스크린이 아닌 홈 스크린이 출력된다. 마지막으로 이 함수는 SharedPreferences를 사용하기 때문에 비동기 처리를 한다.
+- `MaterialApp()`과 `Scaffold()`를 굳이 분리해서 다른 위젯으로 작성한 이유는 <a href="https://stackoverflow.com/questions/44004451/navigator-operation-requested-with-a-context-that-does-not-include-a-navigator">여기</a>를 참조하면 된다. (에러 발생해서)  
 
 <br>
 
@@ -202,14 +203,26 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class GuideMainScreen extends StatelessWidget {
-  GuideMainScreen({super.key});
+  const GuideMainScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: GuideScreen(),
+    );
+  }
+}
+
+class GuideScreen extends StatelessWidget {
+  GuideScreen({super.key});
+
+  final _controller = PageController();
 
   void skipTutorial() async {
     final prefs = await SharedPreferences.getInstance();
     prefs.setBool('isFirstRun', false);
   }
-
-  final _controller = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -282,6 +295,7 @@ class GuideMainScreen extends StatelessWidget {
     );
   }
 }
+
 ```
 
 <br>
