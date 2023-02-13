@@ -253,6 +253,10 @@ search_lol_userInfo("Hide on bush", RIOT_API_KET)
 ```
 
 <br>
+결과화면
+<img width="253" alt="Screenshot 2023-02-13 at 7 27 02 PM" src="https://user-images.githubusercontent.com/92556048/218434828-f8a0a576-934b-4466-a5ce-3229795f94a5.png">
+
+<br>
 <br>
 <br>
 
