@@ -67,3 +67,13 @@ print(type(json_decoding))  # <class 'list'>
 <br>
 
 ### <b>소환사 기본 정보 가져오기</b>
+<img width="944" alt="Screenshot 2023-02-13 at 3 33 38 PM" src="https://user-images.githubusercontent.com/92556048/218392833-4278cf6c-8f78-4762-8bbb-baec1fe45da6.png">
+<img width="580" alt="Screenshot 2023-02-13 at 3 35 37 PM" src="https://user-images.githubusercontent.com/92556048/218392849-ba31d704-f077-4485-8501-ae059fdcb1a4.png">
+<img width="577" alt="Screenshot 2023-02-13 at 3 35 58 PM" src="https://user-images.githubusercontent.com/92556048/218392876-e5df6b2f-dcb7-414d-8e6d-518b8da04282.png">
+<img width="578" alt="Screenshot 2023-02-13 at 3 37 01 PM" src="https://user-images.githubusercontent.com/92556048/218392893-b3af3548-0383-4c54-9222-e7b73e5b5773.png">
+<img width="1105" alt="Screenshot 2023-02-13 at 3 54 49 PM" src="https://user-images.githubusercontent.com/92556048/218392898-e42d619d-06ba-4487-adf9-c8e9d82b8414.png">
+<img width="737" alt="Screenshot 2023-02-13 at 3 55 40 PM" src="https://user-images.githubusercontent.com/92556048/218392906-fe8aca99-f393-40ab-94f0-a1e397367c3c.png">
+<img width="737" alt="Screenshot 2023-02-13 at 3 59 00 PM" src="https://user-images.githubusercontent.com/92556048/218392930-6043b3fe-b7c5-417b-9b6b-1f4555effda2.png">
+<img width="736" alt="Screenshot 2023-02-13 at 3 59 16 PM" src="https://user-images.githubusercontent.com/92556048/218392943-0110c108-5b55-496c-9f70-f2972ec77356.png">
+
+
