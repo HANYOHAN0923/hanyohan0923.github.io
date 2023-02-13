@@ -9,6 +9,10 @@ sitemap:
   changefreq: daily
   priority : 1.0
 ---
+> Reference1: <a>https://developer.riotgames.com/apis</a>  
+> Reference2: <a>https://developer.riotgames.com/docs/portal</a>  
+> Reference3: <a>https://developer.riotgames.com/docs/lol</a>  
+{: .prompt-tip }
 
 ## <b>RIOT API 사용하기</b>
 우선 <a href="https://developer.riotgames.com/">라이엇 개발자 사이트</a>에 로그인을 해서 API를 사용하기 위한 키를 받아야할 뿐만 아니라, 개발에 있어서 중요한 Documents까지 읽어볼 수 있다. 로그인을 하고나면 비영구/영구적 API KEY를 받을 수 있다. 비영구적 API KEY는 24시간의 유효성을 갖고 있으며, 영구적 API KEY를 받기 위해서는 <span style="color:red">REGISTER PRODUCT</span>를 통해 자신이 키를 사용하기 위한 목적을 RIOT에 제출을 해야한다. (번거로울 뿐이지, 쉽게 허가해준다)
@@ -43,7 +47,8 @@ print(type(json_encoding))  # <class 'str'>
 <br>
 
 - JSON Decoding: <span style="color:#cbac69">json.loads()</span>  
-json 문자열을 파싱해서 파이썬 객체로 변환시킵니다.
+json 문자열을 파싱해서 파이썬 객체로 변환시킵니다.  
+
 ```python
 import json
 
@@ -59,5 +64,6 @@ print(type(json_decoding))  # <class 'list'>
 - dump()는 파이썬 객체를 스트림 객체로 변환, dumps()는 json 문자열로 변환.
 - load()는 스트림 객체를 파이썬 객체로 변환, loads()는 json 문자열을 파이썬 객체로 변환.
 
+<br>
 
-이거 코드블럭 또 인식 안됨 오류남!!!!!!!!!!!!!!
+### <b>소환사 기본 정보 가져오기</b>

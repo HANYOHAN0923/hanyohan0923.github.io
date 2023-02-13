@@ -1,5 +1,5 @@
 ---
-title: Flutter POMODORO App 만들기 (2) - Flutter 앱 시작화면/스플래시 스크린 만들기
+title: Flutter POMODORO App 만들기 (2) - Flutter 앱 시작화면/스플래시와 튜토리얼/가이드 스크린 만들기
 author: gksdygks2124
 date: 2023-02-05 10:48:00 +0900
 categories: [Flutter, POMODORO]
