@@ -15,7 +15,14 @@ sitemap:
 > https://th-biglight.tistory.com/26
 {: .prompt-tip }
 
-![flutter_drawer](https://user-images.githubusercontent.com/92556048/218658946-1028354b-f44c-4a29-892e-53490b1d5821.gif)
+### <b>커스텀 Drawer()</b>
+![flutter_drawer](https://user-images.githubusercontent.com/92556048/218658946-1028354b-f44c-4a29-892e-53490b1d5821.gif) 
+
+<br>
+
+### <b>image_picker로 갤러리에서 사진을 가져와 프로필 사진 변경</b>
+![image_picker](https://user-images.githubusercontent.com/92556048/218675866-d378cd05-1940-40a7-87bf-927177201fe3.gif)
+
  
 <br>
 
