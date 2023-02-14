@@ -10,7 +10,10 @@ sitemap:
   priority : 1.0
 ---
 home_screen.dart의 scafforld의 drawer에 추가하면된다.
-
+![flutter_drawer](https://user-images.githubusercontent.com/92556048/218658946-1028354b-f44c-4a29-892e-53490b1d5821.gif)
+ 
+<br>
+ 
 ### <b>sidebar_widget.dart</b>
 
 ### <b>home_screen.dart</b>
