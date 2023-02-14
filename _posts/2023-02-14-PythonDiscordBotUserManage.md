@@ -48,8 +48,8 @@ STEP4. Cloud Firesotre위치 설정에서 오류 발생한 경우
 <br>
 
 STEP5. Cloud Firestore > 규칙 코드 수정하기 (<a href="https://firebase.google.com/docs/rules/rules-language?hl=ko">공식사이트</a>)
-```json
-// 이 코드는 보안상의 취약점이 존재합니다. 만약 보안을 중요시 여겨야 한는 대형 서버에서 사용할 DB라면 따로 코드를 작성해야합니다.
+```shell
+# 이 코드는 보안상의 취약점이 존재합니다. 만약 보안을 중요시 여겨야 한는 대형 서버에서 사용할 DB라면 따로 코드를 작성해야합니다.
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
@@ -99,7 +99,10 @@ Collection(users)는 여러 개의 Document(Bajirak Karlcux, John Han, Movin_Gun
 - `db.collection(u'collectionName').document(u'documentName')`로 컬렉션과 문서에 접근할 수 있다.
 - `.get().to_dict()['key']`로 단일 문서의 필드를 딕셔너리 객체로 반환 후, 키를 통해 필드 값을 읽을 수 있다.
 - `exists`는 find_user가 참조하는 위치에 문서가 없으면 false, 있으면 true를 반환한다.
-- `.set({})`로 문서에 접근 후, 새로운 필드를 추가할 수 있다.
+- `.set({})`로 문서에 접근 후, 새로운 필드를 추가할 수 있다.  
+
+<br>
+ 
 ```python
 import firebase_admin
 from firebase_admin import credentials
