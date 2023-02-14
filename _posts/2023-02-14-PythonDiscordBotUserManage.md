@@ -85,12 +85,17 @@ db = firestore.client()
 
 ## <b>Python에서 Google Firebase 접근하기</b>
 ### <b>Google Firebase DB 구조</b>
-ss
+아래 사진과 user.py코드를 같이 보면 더 쉽게 이해할 수 있다.
+Collection(users)는 여러 개의 Document(Bajirak Karlcux, John Han, Movin_Gun)을 갖고 있고, 각 Document는 여러 개의 필드 값을 갖을 수 있다. 필드 값은 정수, 실수, 배열, 객체, 문자열, 불리언 다양한 값을 값으로 갖을 수 있다. JSON을 직관화해서 보는 것이라고 생각할 수 있다.
 <img width="669" alt="Screenshot 2023-02-14 at 10 15 33 AM" src="https://user-images.githubusercontent.com/92556048/218613102-d235b950-5be5-44aa-b305-195756f46d6d.png">
 
 <br>
 
 ### <b>user.py</b>
+- `db.collection(u'collectionName').document(u'documentName')`로 컬렉션과 문서에 접근할 수 있다.
+- `.get().to_dict()['key']`로 단일 문서의 필드를 딕셔너리 객체로 반환 후, 키를 통해 필드 값을 읽을 수 있다.
+- `exists`는 find_user가 참조하는 위치에 문서가 없으면 false, 있으면 true를 반환한다.
+- `.set({})`로 문서에 접근 후, 새로운 필드를 추가할 수 있다.
 ```python
 import firebase_admin
 from firebase_admin import credentials
@@ -105,13 +110,14 @@ db = firestore.client()
 # 회원가입을 할 경우 중복가입을 막기 위해 존재하는 유저인지 확인
 def checkUserExist(_name, _id):
     print("user.py - checkUser()")
-    # DB에 없는 유저는 NameError가 발생합니다
     try:
-        # db에서 _name(디스코드 닉네임)과 일치하는 항목이 있는지 확인
-        find_user = db.collection(u'users').document(_name)
-        # 디스코드에서는 닉네임이 같을 수 있다. 그렇지만 이런 경우 개인의 고유 id를 통해 다른 유저임을 식별한다.
-        # 따라서 디스코드 닉네임은 같을 때, id비교를 안 하면 오류가 발생하기 때문에 닉네임은 갖고, id는 다른 서로 다른 유저의 회원가입을 진행하기 위한 코드
-        if _id == find_user.get().to_dict()['id']:
+        find_user_ref = db.collection(u'users').document(_name)
+        find_user = find_user_ref.get()
+
+        if find_user.exists:
+            return True
+         # 디스코드에서는 닉네임이 같을 수 있다. 그렇지만 이런 경우 개인의 고유 id를 통해 다른 유저임을 식별한다. 따라서 디스코드 닉네임은 같을 때, id비교를 안 하면 오류가 발생하기 때문에 닉네임은 갖고, id는 서로 다른 유저를 구별하해야한다
+        elif _id == find_user.to_dict()['id']:
             return True
         else:
             return False
