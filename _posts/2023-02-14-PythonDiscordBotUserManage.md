@@ -2,8 +2,8 @@
 title: 디스코드 봇에 유저 회원가입 기능 추가하기
 author: gksdygks2124
 date: 2023-02-13 09:14:00 +0900
-categories: [Python]
-tags: [python decorator, decorator, 파이썬 데코레이터]
+categories: [Python, Discord Bot]
+tags: [discord.py, 디스코드 봇, 디스코드 봇 회원가입, 디스코드 봇 유저]
 lastmode: 2023-02-13 09:14:00
 sitemap:
   changefreq: daily
@@ -89,7 +89,8 @@ db = firestore.client()
 ## <b>Python에서 Google Firebase 접근하기</b>
 ### <b>Google Firebase DB 구조</b>
 아래 사진과 user.py코드를 같이 보면 더 쉽게 이해할 수 있다.
-Collection(users)는 여러 개의 Document(Bajirak Karlcux, John Han, Movin_Gun)을 갖고 있고, 각 Document는 여러 개의 필드 값을 갖을 수 있다. 필드 값은 정수, 실수, 배열, 객체, 문자열, 불리언 다양한 값을 값으로 갖을 수 있다. JSON을 직관화해서 보는 것이라고 생각할 수 있다.
+Collection(users)는 여러 개의 Document(Bajirak Karlcux, John Han, Movin_Gun)을 갖고 있고, 각 Document는 여러 개의 필드 값을 갖을 수 있다. 필드 값은 정수, 실수, 배열, 객체, 문자열, 불리언 다양한 값을 값으로 갖을 수 있다. JSON을 직관화해서 보는 것이라고 생각할 수 있다.  
+
 <img width="669" alt="Screenshot 2023-02-14 at 10 15 33 AM" src="https://user-images.githubusercontent.com/92556048/218613102-d235b950-5be5-44aa-b305-195756f46d6d.png">
 
 <br>

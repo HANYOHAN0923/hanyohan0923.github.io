@@ -3,7 +3,7 @@ title: RIOT API를 사용해서 디스코드 봇에 롤/롤체 전적검색 명�
 author: gksdygks2124
 date: 2023-01-25 22:17:00 +0900
 categories: [Python, Discord Bot]
-tags: [RIOT API, 롤전적검색, 디스코드 봇, TFT전적검색]
+tags: [RIOT API, 롤전적검색, 디스코드 봇, TFT전적검색, discord.py]
 lastmode: 2023-01-25 22:17:00
 sitemap:
   changefreq: daily
