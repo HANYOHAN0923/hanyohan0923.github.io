@@ -23,31 +23,31 @@ sitemap:
 
 <br>
 
-1) 프로젝트를 생성하고나면 콘솔페이지로 넘어갈 수 있다. 프로젝트 페이지 왼쪽에 사이드바에서 Firestore Database를 클릭해서 DB를 생성한다.
+STEP1. 프로젝트를 생성하고나면 콘솔페이지로 넘어갈 수 있다. 프로젝트 페이지 왼쪽에 사이드바에서 Firestore Database를 클릭해서 DB를 생성한다.
 <br>
 <img width="244" alt="Screenshot 2023-02-14 at 9 24 54 AM" src="https://user-images.githubusercontent.com/92556048/218607051-bc709700-b1ac-4bd7-9230-ef2f46ecdf71.png">
 
 <br>
 
-2) 프로덕션 모드 선택
+STEP2. 프로덕션 모드 선택
 <br>
 <img width="813" alt="Screenshot 2023-02-14 at 9 25 19 AM" src="https://user-images.githubusercontent.com/92556048/218607057-310d24fa-fc60-4d66-a876-38a39b95e92a.png">
 
 <br>
 
-3) Cloud Firestore위치 설정
+STEP3. Cloud Firestore위치 설정
 <br>
 <img width="807" alt="Screenshot 2023-02-14 at 9 25 46 AM" src="https://user-images.githubusercontent.com/92556048/218607064-3821f558-6fa9-4825-b2ed-1d809b5014ef.png">
 
 <br>
 
-4) Cloud Firesotre위치 설정에서 오류 발생한 경우  
+STEP4. Cloud Firesotre위치 설정에서 오류 발생한 경우  
 콘솔에서 톱니바퀴 버튼 클릭 후 프로젝트 설정 > 일반 > 기본 GCP 리로스 위치를 업데이트 후에 다시 하면 된다.
 <img width="599" alt="Screenshot 2023-02-14 at 9 27 44 AM" src="https://user-images.githubusercontent.com/92556048/218607113-3989ea02-076d-45df-b463-cda7dd2d25b6.png">
 
 <br>
 
-5) Cloud Firestore > 규칙 코드 수정하기 (<a href="https://firebase.google.com/docs/rules/rules-language?hl=ko">공식사이트</a>)
+STEP5. Cloud Firestore > 규칙 코드 수정하기 (<a href="https://firebase.google.com/docs/rules/rules-language?hl=ko">공식사이트</a>)
 ```json
 // 이 코드는 보안상의 취약점이 존재합니다. 만약 보안을 중요시 여겨야 한는 대형 서버에서 사용할 DB라면 따로 코드를 작성해야합니다.
 rules_version = '2';
@@ -62,12 +62,14 @@ service cloud.firestore {
 
 <br>
 
-6) 프로젝트 설정 > 서비스 계정 > Firebase Admin SDK > Admin SDK 구성 스니펫: Python 선택 > 새 비공개 키 생성(JSON이 설치 됨)
+STEP6. 프로젝트 설정 > 서비스 계정 > Firebase Admin SDK > Admin SDK 구성 스니펫: Python 선택 > 새 비공개 키 생성(JSON이 설치 됨)
 <img width="1062" alt="Screenshot 2023-02-14 at 9 28 18 AM" src="https://user-images.githubusercontent.com/92556048/218607119-8e10b08c-d8e2-475d-8bc1-de607ac5e8d5.png">
 
 <br>
 
-7) Google Firestore Initializing > 설치된 JSON파일을 Python 프로젝트 폴더로 이동 후 import  
+STEP7. Google Firestore Initializing > 설치된 JSON파일을 Python 프로젝트 폴더로 이동 후 import  
+
+<br>
 
 ```python
 import firebase_admin
