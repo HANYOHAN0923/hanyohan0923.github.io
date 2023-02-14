@@ -202,15 +202,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 appBar: AppBar(
                   backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                   elevation: 0,
-                  leading: Builder(
-                    builder: (context) => IconButton(
-                      onPressed: () => Scaffold.of(context).openDrawer(),
-                      icon: const Icon(
-                        Icons.menu_rounded,
-                        color: Color(0xFFF4EDDB),
-                      ),
-                    ),
-                  ),
                   actions: [
                     IconButton(
                       icon: Icon(themeNotifier.value == ThemeMode.light
@@ -225,7 +216,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-                drawer: const SideBar(),
                 backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                 body: Center(
                   child: Text(
