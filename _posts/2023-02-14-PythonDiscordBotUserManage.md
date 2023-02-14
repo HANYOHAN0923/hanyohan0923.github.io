@@ -86,6 +86,7 @@ db = firestore.client()
 ## <b>Python에서 Google Firebase 접근하기</b>
 ### <b>Google Firebase DB 구조</b>
 ss
+<img width="669" alt="Screenshot 2023-02-14 at 10 15 33 AM" src="https://user-images.githubusercontent.com/92556048/218613102-d235b950-5be5-44aa-b305-195756f46d6d.png">
 
 <br>
 
