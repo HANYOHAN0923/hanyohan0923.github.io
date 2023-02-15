@@ -9,10 +9,8 @@ sitemap:
   changefreq: daily
   priority : 1.0
 ---
-> 참고 영상  
-> https://th-biglight.tistory.com/26  
-> 참고 게시글  
-> https://th-biglight.tistory.com/26
+> 참고 영상 : https://www.youtube.com/watch?v=WRj86iHihgY  
+> 참고 게시글 : https://th-biglight.tistory.com/26
 {: .prompt-tip }
 
 ### <b>커스텀 Drawer()</b>

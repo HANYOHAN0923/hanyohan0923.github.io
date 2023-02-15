@@ -9,6 +9,9 @@ sitemap:
   changefreq: daily
   priority : 1.0
 ---
+> 최종 결과물 GitHub: https://github.com/HANYOHAN0923/DiscordBot
+{: .prompt-tip }
+
 ## <b>프로젝트 계획</b>
 디스코드 서버에서 유저들의 교류 및 활동을 더 활발하게 하고, 편의성을 제공하기 위해서 디스코드 내부에 명령어를 수행하는 봇을 제작.  
 <br>
