@@ -260,32 +260,22 @@ async def 송금(ctx, user: discord.User, money):
         await ctx.send("송금 불가능 단위")
         return 0
         
-    print("송금이 가능한지 확인합니다.")
+    # 입금 대상, 출금 대상 유저가 존재하는 유저인지 확인
     senderStatus = checkUserExist(ctx.author.name, ctx.author.id)
     receiverStatus = checkUserExist(user.name, user.id)
 
+    # 출금 대상이 없을 때
     if not senderStatus:
-        print("DB에서", ctx.author.name, "을 찾을수 없습니다")
-        print("------------------------------\n")
         await ctx.send("회원가입 후 송금이 가능합니다.")
+    # 입금 대상이 없을 때
     elif not receiverStatus:
-        print("DB에서 ", user.name, "을 찾을 수 없습니다")
-        print("------------------------------\n")
         await ctx.send(user.name  + " 은(는) 등록되지 않은 사용자입니다.")
     else:
-        print("송금하려는 돈: ", money)
-
-        s_money = getMoney(ctx.author.name)
-        r_money = getMoney(user.name)
-        print("Done")
+        s_money = getMoney(ctx.author.name) # 출금계좌 보유 원화 가져오기
+        r_money = getMoney(user.name) # 송금계좌 보유 원화 가져오기
 
         if s_money >= int(money) and int(money) != 0:
-            print("돈이 충분하므로 송금을 진행합니다.")
-            print("")
-
             remit(ctx.author.name, user.name, money)
-
-            print("송금이 완료되었습니다. 결과를 전송합니다.")
 
             embed = discord.Embed(title="송금 완료", description = "송금된 돈: " + money, color = 0x77ff00)
             embed.add_field(name = "보낸 사람: " + ctx.author.name, value = "현재 자산: " + str(format(int(getMoney(ctx.author.name)),',')))
@@ -293,12 +283,11 @@ async def 송금(ctx, user: discord.User, money):
             embed.add_field(name="받은 사람: " + user.name, value="현재 자산: " + str(format(int(getMoney(user.name)),',')))
                     
             await ctx.send(embed=embed)
+
         elif int(money) == 0:
-            await ctx.send("0원을 보낼 필요는 없죠")
+            await ctx.send("0원은 송금 가능 금액이 아닙니다")
+        # 출금계좌에 잔액이 부족한 경우
         else:
-            print("돈이 충분하지 않습니다.")
-            print("송금하려는 돈: ", money)
-            print("현재 자산: ", s_money)
             await ctx.send("돈이 충분하지 않습니다. 현재 자산: " + str(s_money))
 
         print("------------------------------\n")
