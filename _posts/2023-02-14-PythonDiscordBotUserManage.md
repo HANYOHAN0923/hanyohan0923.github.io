@@ -16,7 +16,7 @@ sitemap:
 <br>
 <br>
 
-## <b>Google Firebase 사용하기</b>
+# <b>Google Firebase 사용하기</b>
 <a href="https://console.firebase.google.com/?hl=ko">구글 파이어베이스 콘솔 페이지</a>에 접속하여 새로운 Firebase프로젝트를 생성하거나 추가해야한다. 프로젝트 생성(혹은 추가) 후에 작업은 아래와 같다.
 - 프로젝트 이름 설정: 본인이 원하는 이름 혹은 디스코드 봇 이름을 사용해도 된다.
 - Firebase 프로젝트를 위한 Google 애널리틱스: 해도 안 해도 상관 없다. 대신 사용 선택을 하면 'Google 애널리틱스 구성' 계정을 선택해야한다.
@@ -86,8 +86,8 @@ db = firestore.client()
 <br>
 <br>
 
-## <b>Python에서 Google Firebase 접근하기</b>
-### <b>Google Firebase DB 구조</b>
+# <b>Python에서 Google Firebase 접근하기</b>
+## <b>Google Firebase DB 구조</b>
 아래 사진과 user.py코드를 같이 보면 더 쉽게 이해할 수 있다.
 Collection(users)는 여러 개의 Document(Bajirak Karlcux, John Han, Movin_Gun)을 갖고 있고, 각 Document는 여러 개의 필드 값을 갖을 수 있다. 필드 값은 정수, 실수, 배열, 객체, 문자열, 불리언 다양한 값을 값으로 갖을 수 있다. JSON을 직관화해서 보는 것이라고 생각할 수 있다.  
 
@@ -95,10 +95,11 @@ Collection(users)는 여러 개의 Document(Bajirak Karlcux, John Han, Movin_Gun
 
 <br>
 
+## <b>회원가입 기능 구현하기</b>
 ### <b>user.py</b>
 - `db.collection(u'collectionName').document(u'documentName')`로 컬렉션과 문서에 접근할 수 있다.
 - `.get().to_dict()['key']`로 단일 문서의 필드를 딕셔너리 객체로 반환 후, 키를 통해 필드 값을 읽을 수 있다.
-- `exists`는 find_user가 참조하는 위치에 문서가 없으면 false, 있으면 true를 반환한다.
+- `exists`는 db.collection('colName').document(u'docName')가 참조하는 위치에 문서가 없으면 false, 있으면 true를 반환한다. (아래 예제 코드에서는 db.collection('colName').document(u'docName')는 find_user이다.)
 - `.set({})`로 문서에 접근 후, 새로운 필드를 추가할 수 있다.  
 
 <br>
@@ -192,4 +193,193 @@ from lib.user_manage import *
 async def 회원가입(ctx):
   message = signUp(ctx.author.name, ctx.author.id)
   await ctx.send(message)
+```
+
+<br>
+<br>
+
+## <b>돈 기능 추가</b>
+유저끼리 서로 돈을 송금하고, 자기 자신의 자신과 레벨을 확인할 수 있는 정보를 볼 수 있는 명령어(돈은 나중에 도박, 낚시, 코인, 아이템구매 등... 미니게임에 사용됩니다)
+### <b>user.py</b>
+기존에 있던 파일에 추가로 작성하면 됩니다.  
+
+```python
+# 유저 정보를 가져오는 함수
+def userInfo(_name):
+    user_info = db.collection(u'users').document(_name).get().to_dict()
+
+    _lvl = user_info["level"]
+    _exp = user_info["exp"]
+    _money = user_info["money"]
+
+    return _lvl, _exp, _money
+
+# 현재 자산을 조회하는 함수
+def getMoney(_name):
+    result = db.collection(u'users').document(_name).get().to_dict()["money"]
+    return result
+
+# 돈을 수정하는 함수
+def modifyMoney(_target, _amount):
+    money = db.collection(u'users').document(_target).get().to_dict()["money"]
+    db.collection(u'users').document(_target).update({u'money': money + _amount})
+
+# 송금 기능 담당하는 함수
+def remit(sender, receiver, _amount):
+    modifyMoney(receiver,  int(_amount))
+    modifyMoney(sender,  -int(_amount))
+```
+
+<br>
+
+### <b>main.py</b>
+기존에 있던 파일에 추가로 작성하면 됩니다.  
+
+```python
+@bot.command()
+async def 내정보(ctx):
+    userStatus = checkUserExist(ctx.author.name, ctx.author.id)
+
+    if not userStatus:
+        await ctx.send("회원가입 후 자신의 정보를 확인할 수 있습니다.")
+    else:
+        level, exp, money = userInfo(ctx.author.name)
+        exp_amount_to_up = level*level + 6*level
+        boxes = int(exp/exp_amount_to_up*20)
+        embed = discord.Embed(title="유저 정보", description = ctx.author.name, color = 0x62D0F6)
+        embed.add_field(name = ":crossed_swords: 레벨", value = level)
+        embed.add_field(name = "XP: " + str(exp) + "/" + str(exp_amount_to_up), value = boxes * ":blue_square:" + (20-boxes) * ":white_large_square:", inline = False)
+        embed.add_field(name = "=========================보유 자산=========================", value="=======================================================", inline = False)
+        embed.add_field(name = ":moneybag: 원화", value = format(int(money),','), inline = True)
+
+        await ctx.send(embed=embed)
+
+@bot.command()
+async def 송금(ctx, user: discord.User, money):
+    if int(money) <= 0:
+        await ctx.send("송금 불가능 단위")
+        return 0
+        
+    print("송금이 가능한지 확인합니다.")
+    senderStatus = checkUserExist(ctx.author.name, ctx.author.id)
+    receiverStatus = checkUserExist(user.name, user.id)
+
+    if not senderStatus:
+        print("DB에서", ctx.author.name, "을 찾을수 없습니다")
+        print("------------------------------\n")
+        await ctx.send("회원가입 후 송금이 가능합니다.")
+    elif not receiverStatus:
+        print("DB에서 ", user.name, "을 찾을 수 없습니다")
+        print("------------------------------\n")
+        await ctx.send(user.name  + " 은(는) 등록되지 않은 사용자입니다.")
+    else:
+        print("송금하려는 돈: ", money)
+
+        s_money = getMoney(ctx.author.name)
+        r_money = getMoney(user.name)
+        print("Done")
+
+        if s_money >= int(money) and int(money) != 0:
+            print("돈이 충분하므로 송금을 진행합니다.")
+            print("")
+
+            remit(ctx.author.name, user.name, money)
+
+            print("송금이 완료되었습니다. 결과를 전송합니다.")
+
+            embed = discord.Embed(title="송금 완료", description = "송금된 돈: " + money, color = 0x77ff00)
+            embed.add_field(name = "보낸 사람: " + ctx.author.name, value = "현재 자산: " + str(format(int(getMoney(ctx.author.name)),',')))
+            embed.add_field(name = "→", value = ":moneybag:")
+            embed.add_field(name="받은 사람: " + user.name, value="현재 자산: " + str(format(int(getMoney(user.name)),',')))
+                    
+            await ctx.send(embed=embed)
+        elif int(money) == 0:
+            await ctx.send("0원을 보낼 필요는 없죠")
+        else:
+            print("돈이 충분하지 않습니다.")
+            print("송금하려는 돈: ", money)
+            print("현재 자산: ", s_money)
+            await ctx.send("돈이 충분하지 않습니다. 현재 자산: " + str(s_money))
+
+        print("------------------------------\n")
+```
+
+<br>
+<br>
+
+## <b>레벨 기능 구현하기</b>
+경험치를 얻는 방법은 간단합니다. 디스코드 채팅 채널에서 명령어든 텍스트든 입력할 때마다
+<br>
+
+### <b>user.py</b>
+기존에 있던 파일에 추가로 작성하면 됩니다.  
+
+```python
+# 유저가 레벨업 여부를 확인하고, 레벨업 조건 충족시 레벨업을 담당하는 함수
+def levelUpCheck(_name):
+    name = _name
+    # Google Firebase(DB)로부터 유저의 경험치와 레벨 값 읽어오기
+    exp = db.collection(u'users').document(_name).get().to_dict()["exp"]
+    lvl = db.collection(u'users').document(_name).get().to_dict()["level"]
+
+    # 레벨업시 요구되는 경험치 => 마인크래프트 0~16레벨업 공식입니다.
+    exp_amount_to_up = lvl^2 + lvl*6
+
+    # 레벨업 조건 충족 (경험치exp가 다음 레벨 요구 경험치exp_amount_to_up보다 큼)
+    if exp >= exp_amount_to_up:
+        # 경험치 획득량이 많아서 한번에 2레벨을 업할 수 있어서 반복문 사용
+        while(exp >= exp_amount_to_up and exp >= 0):
+            # DB level 값에 1을 더해서 업데이트
+            db.collection(u'users').document(_name).update({u'level': lvl + 1})
+            # DB exp 값에 레벨업을 위해 소모된 exp를 차감
+            db.collection(u'users').document(_name).update({u'exp': exp - exp_amount_to_up})
+
+            # Google Firebase(DB)로부터 반복문을 돌기 위해 유저의 변경된 경험치와 레벨 값 읽어오기
+            exp = db.collection(u'users').document(_name).get().to_dict()["exp"]
+            lvl = db.collection(u'users').document(_name).get().to_dict()["level"]
+            # 레벨업을 해서 다음 레벨업에 요구되는 경험치 총량도 달라진다
+            exp_amount_to_up = lvl*lvl + 6*lvl
+        return True, lvl
+    else:
+        return False, lvl
+
+# 유저가 채팅할 때마다 경험치를 주기 위한 텍스트
+def modifyExp(_name, _amount):
+    name = _name
+    exp = db.collection(u'users').document(_name).get().to_dict()["exp"]
+    db.collection(u'users').document(_name).update({u'exp': exp + _amount})
+```
+
+<br>
+
+### <b>main.py</b>
+기존에 있던 파일에 추가로 작성하면 됩니다.  
+
+```python
+from random import randint
+
+@bot.event
+async def on_message(message):
+    # 채팅한게 유저가 아니고 봇일 경우 이벤트 종료
+    if message.author == bot.user:
+        return
+    # 채팅한게 유저가 맞을 경우
+    else:
+        # 회원가입 안 한 디스코드 유저가 채팅했을 경우는 그대로 이벤트 종료
+        userStatus = checkUserExist(message.author.name, message.author.id)
+        channel = message.channel
+        if userStatus:
+            levelUp, lvl = levelUpCheck(message.author.name)
+            if levelUp:
+                # 레벨업 보상금 지급
+                modifyMoney(message.author.name, int(lvl)*100000)
+                # 레벨업 축하 임베드 작성
+                embed = discord.Embed(title = "레벨업", description = None, color = 0x00A260)
+                embed.set_footer(text = f"홀리 쉿~! {message.author.name} {str(lvl)} 레벨 달성!!!")
+                await channel.send(embed=embed)
+            else:
+                # 채팅했을 때 1~10 exp를 랜덤으로 지급
+                modifyExp(message.author.name, randint(1,10))
+
+        await bot.process_commands(message)
 ```
