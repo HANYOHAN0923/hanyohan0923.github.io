@@ -12,7 +12,8 @@ sitemap:
 
 # Firebase Authentication 로그인  
 
-# sign_in_screen.dart  
+# sign_in_screen.dart
+좀 더 중앙화해서 코딩하기, extract widget가능해 보이는 부분은 최대한 진행하고
 ```dart
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widget/account_field_widget.dart';
