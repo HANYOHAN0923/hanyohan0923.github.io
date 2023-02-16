@@ -9,12 +9,19 @@ sitemap:
   changefreq: daily
   priority : 1.0
 ---
-> 최종 결과물 GitHub: https://github.com/HANYOHAN0923/DiscordBot
-{: .prompt-tip }
+> 최종 코드 및 레퍼런스  
+> 최종 결과물 GitHub: https://github.com/HANYOHAN0923/DiscordBot  
+> 자주 묻는 질문: https://discordpy-ko.github.io/faq.html  
+> Table of Contents(Commands 명령어): https://discordpy-ko.github.io/ext/commands/commands.html  
+> API Reference: https://discordpy.readthedocs.io/en/latest/ext/commands/api.html#
+> ctx(context): https://discordpy.readthedocs.io/en/latest/ext/commands/api.html#context  
+> message(Model): https://discordpy.readthedocs.io/en/stable/api.html#message  
+{: .prompt-tip }  
+
+<br>
 
 ## <b>프로젝트 계획</b>
 디스코드 서버에서 유저들의 교류 및 활동을 더 활발하게 하고, 편의성을 제공하기 위해서 디스코드 내부에 명령어를 수행하는 봇을 제작.  
-<br>
 <br>
 
 ## <b>기능</b>

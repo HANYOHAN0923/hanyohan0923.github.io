@@ -3,7 +3,7 @@ title: 디스코드 봇에 유저 회원가입 기능 추가하기
 author: gksdygks2124
 date: 2023-02-13 09:14:00 +0900
 categories: [Python, Discord Bot]
-tags: [discord.py, 디스코드 봇, 디스코드 봇 회원가입, 디스코드 봇 유저]
+tags: [discord.py, 디스코드 봇, 디스코드 봇 회원가입, 디스코드 봇 유저, on_message, bot.process_commamnds(message)]
 lastmode: 2023-02-13 09:14:00
 sitemap:
   changefreq: daily
@@ -343,6 +343,10 @@ def modifyExp(_name, _amount):
 
 ### <b>main.py</b>
 기존에 있던 파일에 추가로 작성하면 됩니다.  
+- `@bot.event - on_message`: discord.py에서 제공하는 이벤트로 봇이 있는 서버의 채팅 채널에서 새로운 메시지가 생성될 때마다 호출이 된다. 해당 함수는 호출될 때마다 디스코드로부터 인자로 discord.Message객체를 넘겨받는다.
+- `bot.process_commands(message)`: @bot.event - on_message를 사용했을 때 치명적인 오류가 있다. 바로 @bot.command()명령어가 씹히는 것이다. @bot.command()와 @bot.event를 같이 사용할 수 없기 때문에, `bot.process_commands(message)`를 통해 명령어를 실행할 수 있다. 즉 먼저 @bot.event가 해당 명령어를 하나의 새로운 메세지로 처리를 하고, 나중에 @bot.process_commands()를 통해 명령어를 실행하는 것이다. 이 함수는 코루틴이라서 <span style="color:purple">await</span>로 호출해야한다.  
+  
+
 
 ```python
 from random import randint

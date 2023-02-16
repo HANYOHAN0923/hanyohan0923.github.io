@@ -24,15 +24,13 @@ sitemap:
 <br>
 
 ## <b>Related to CocoaPods</b>
-- [Error: CocoaPods's specs repository is too out-of-date to satisfy dependencies.](https://stackoverflow.com/questions/64443888/flutter-cocoapodss-specs-repository-is-too-out-of-date-to-satisfy-dependencies)
+- [Error: CocoaPods's specs repository is too out-of-date to satisfy dependencies.](https://stackoverflow.com/questions/64443888/flutter-cocoapodss-specs-repository-is-too-out-of-date-to-satisfy-dependencies)  
 
-<br>
+- [CocoaPods not installed or not in valid state (1)](https://stackoverflow.com/questions/62593939/cocoapods-not-installed-or-not-in-valid-state')  
 
-- [CocoaPods not installed or not in valid state (1)](https://stackoverflow.com/questions/62593939/cocoapods-not-installed-or-not-in-valid-state')
+- [CocoaPods not installed or not in valid state (2)](https://annhee.tistory.com/69)  
 
-<br>
-
-- [CocoaPods not installed or not in valid state (2)](https://annhee.tistory.com/69)
+- [flutter: running pod install takes forever while building in debug mode](https://stackoverflow.com/questions/64144204/flutter-running-pod-install-takes-forever-while-building-in-debug-mode)
 
 <br>
 <br>
