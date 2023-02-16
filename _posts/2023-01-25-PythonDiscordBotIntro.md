@@ -13,7 +13,7 @@ sitemap:
 > 최종 결과물 GitHub: https://github.com/HANYOHAN0923/DiscordBot  
 > 자주 묻는 질문: https://discordpy-ko.github.io/faq.html  
 > Table of Contents(Commands 명령어): https://discordpy-ko.github.io/ext/commands/commands.html  
-> API Reference: https://discordpy.readthedocs.io/en/latest/ext/commands/api.html#  
+> API Reference: https://discordpy.readthedocs.io/en/latest/ext/commands/api.html#   
 > ctx(context): https://discordpy.readthedocs.io/en/latest/ext/commands/api.html#context  
 > message(Model): https://discordpy.readthedocs.io/en/stable/api.html#message  
 {: .prompt-tip }  
