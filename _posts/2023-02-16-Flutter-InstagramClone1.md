@@ -138,3 +138,5 @@ class _SignInScreenState extends State<SignInScreen> {
 ```
 
 # sign_up_screen.dart
+
+낚시, 도박 -> 크롤링 파이썬 디스코드봇 게시글 추가
