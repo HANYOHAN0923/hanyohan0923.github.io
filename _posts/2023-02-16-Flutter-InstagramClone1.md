@@ -631,7 +631,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
 <br>
 
 # <b>로그인, 회원가입, 예외처리 기능 추가하기</b>
-본격적으로 로그인, 회원가입 기능을 제대로 사용하기 앞서서 프로젝트 콘솔에서 마지막으로 작업을 해야한다. 생성한 Firebase 프로젝트에서 Authentication > Sign-in Method 탭에서 로그인 제공업체 이메일/비밀번호을 추가해준다. 
+본격적으로 로그인, 회원가입 기능을 제대로 사용하기 앞서서 프로젝트 콘솔에서 마지막으로 작업을 해야한다. 생성한 Firebase 프로젝트에서 Authentication > Sign-in Method 탭에서 로그인 제공업체 이메일/비밀번호을 추가해준다.
+<img width="1073" alt="Screenshot 2023-02-22 at 4 02 19 PM" src="https://user-images.githubusercontent.com/92556048/220588127-8f36d594-2f45-4edc-b261-4da12f6d9b7d.png">
+
+![login_1-min](https://user-images.githubusercontent.com/92556048/220588263-d7c599d0-daad-4aad-93d2-fcd98a1d7b0e.gif)![중첩 시퀀스 01-min](https://user-images.githubusercontent.com/92556048/220588308-ab9d11e3-5b44-4a71-8bce-6916865f8658.gif)
+![중첩 시퀀스 01-min](https://user-images.githubusercontent.com/92556048/220588333-ffcdfdac-1ecb-4bca-802b-a32d7962ae72.gif)
+
 
 <br>
 
@@ -753,6 +758,8 @@ class FirebaseAuthHelper {
   }
 }
 ```
+
+<br>
 
 ## <b>sign_in_screen.dart</b>
 아까 위에서 비워두었던 함수를 아래와 같이 작성한다.  
