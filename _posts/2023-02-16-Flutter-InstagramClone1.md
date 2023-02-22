@@ -16,14 +16,24 @@ sitemap:
 
 # <b>Firebase 프로젝트 생성하고, Flutter Project와 연결하기</b>
 ## <b> STEP1. <a href="https://console.firebase.google.com/?hl=ko">공홈</a>에서 프로젝트 생성하고, 콘솔창에서 앱 추가(ios 선택) </b>
+<img width="411" alt="Screenshot 2023-02-21 at 3 21 33 PM" src="https://user-images.githubusercontent.com/92556048/220535652-4188b25d-cda2-4fd8-92b4-bdb1d7d96bb5.png">
 
 <br>
 
-## <b> STEP2. Apple 번들 ID 작성 (Flutter Project Root Dir > ios Dir 우클릭 후 XCODE로 열기, X Code에서 좌측 상단 Runner 클릭 후 Identity에서 Bundle Identifier 확인 가능) </b>
+## <b> STEP2. Apple 번들 ID 작성</b>
+Flutter Project Root Dir > ios Dir 우클릭 후 XCODE로 열기, X Code에서 좌측 상단 Runner 클릭 후 Identity에서 Bundle Identifier 확인 가능
 
 <br>
 
-## <b> STEP3. 구성 파일(.plist) 설치 후 Root > ios > Runner경로에 추가 (X Code환경에서 추가하기) </b>
+<img width="492" alt="Screenshot 2023-02-21 at 3 22 55 PM" src="https://user-images.githubusercontent.com/92556048/220535732-0a13eebb-9aec-45fc-baee-b6301146a846.png">
+<img width="375" alt="Screenshot 2023-02-21 at 3 22 23 PM" src="https://user-images.githubusercontent.com/92556048/220535825-6f07d87c-51c2-4352-8795-143a43fe1ce9.png">
+<img width="263" alt="Screenshot 2023-02-21 at 3 23 23 PM" src="https://user-images.githubusercontent.com/92556048/220536510-e6be2558-3c41-4cff-af10-318bb544b100.png">
+<img width="597" alt="Screenshot 2023-02-21 at 3 23 34 PM" src="https://user-images.githubusercontent.com/92556048/220536524-0a2ccdd6-5c4e-48ff-bc5e-1d0485fc1fea.png">
+
+
+## <b> STEP3. 구성 파일(.plist) 설치 후 Runner Dir에 추가</b>
+<img width="718" alt="Screenshot 2023-02-21 at 3 26 46 PM" src="https://user-images.githubusercontent.com/92556048/220536757-ad8b31e1-fad6-420d-a90b-f546655d3a5d.png">
+<img width="254" alt="Screenshot 2023-02-22 at 3 05 23 PM" src="https://user-images.githubusercontent.com/92556048/220536894-43ce75a6-539c-43b3-bb44-e32528dc9eea.png">
 
 <br>
 
