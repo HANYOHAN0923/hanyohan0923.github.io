@@ -73,6 +73,7 @@ class MyWidget extends StatelessWidget {
 <br>
 
 # <b>Instagram 로그인, 회원가입 UI 구현</b>
+![psObscure-min](https://user-images.githubusercontent.com/92556048/220538096-805598db-86f2-4487-868f-e87d674b5f68.gif)
 ## <b>sign_in_screen.dart</b>
 
 ```dart
