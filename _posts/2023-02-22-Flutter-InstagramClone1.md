@@ -815,6 +815,7 @@ class FirebaseAuthHelper {
 <br>
 
 ## <b>sign_up_screen.dart</b>
+아까 위에서 비워두었던 함수를 아래와 같이 작성한다.
 
 <br>
 
