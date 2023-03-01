@@ -10,10 +10,10 @@ sitemap:
   priority : 1.0
 ---
 > Github Repo: https://github.com/HANYOHAN0923/instagram_clone   
-> Docs: https://firebase.google.com/docs/auth/admin/errors?hl=ko  
-> Docs: https://firebase.google.com/docs/auth/flutter/errors?hl=ko  
-> Docs: https://firebase.google.com/docs/auth/flutter/start?hl=ko  
-> Ref: https://medium.com/flutter-community/firebase-auth-exceptions-handling-flutter-54ab59c2853d
+> Docs(Exception Code): https://firebase.google.com/docs/auth/admin/errors?hl=ko  
+> Docs(Auth-Exception, Error]): https://firebase.google.com/docs/auth/flutter/errors?hl=ko  
+> Docs(Getting-start): https://firebase.google.com/docs/auth/flutter/start?hl=ko  
+> Ref(Exception Handling): https://medium.com/flutter-community/firebase-auth-exceptions-handling-flutter-54ab59c2853d
 {: .prompt-tip }
 
 <br>

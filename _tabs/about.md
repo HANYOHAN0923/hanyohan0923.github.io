@@ -11,6 +11,8 @@ order: 4
 
 :file_folder: Portfolio: [John Han's Web Portfolio](http://johnhan0923.dothome.co.kr/)
 
+- Flutter(Dart), Python(Big Data) [Full Stack]
+- Premiere Pro CC, After Effects, Illustrator [Motion/Typo Graphic]
 
 
 > CONTACT `gksdygks2124@gmail.com`{: .filepath }
