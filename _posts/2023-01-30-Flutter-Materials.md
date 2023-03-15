@@ -19,3 +19,9 @@ sitemap:
 
 ## <b>Related to AppBar</b>
 - [Change AppBar's Drawer Icon](https://stackoverflow.com/questions/59554348/how-can-i-change-drawer-icon-in-flutter)
+
+<br>
+<br>
+
+## <b>ETC</b>
+- [Responsive Layout / MediaQuery](https://stackoverflow.com/questions/49704497/how-to-make-flutter-app-responsive-according-to-different-screen-size?rq=1)

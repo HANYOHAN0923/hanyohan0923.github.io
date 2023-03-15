@@ -18,7 +18,9 @@ sitemap:
 
 - [error: Navigator operation requested with a context that does not include a Navigator. (2)](https://stackoverflow.com/questions/44004451/navigator-operation-requested-with-a-context-that-does-not-include-a-navigator)
 
-- [error: Navigator operation requested with a context that does not include a Navigator. (3)](https://github.com/flutter/flutter/issues/15919)
+- [error: Navigator operation requested with a context that does not include a Navigator. (3)](https://github.com/flutter/flutter/issues/15919)  
+
+- [error: A value of type 'Widget' can't be assigned to a variable of type 'PreferredSizeWidget'](https://stackoverflow.com/questions/67321949/a-value-of-type-widget-cant-be-assigned-to-a-variable-of-type-preferredsizew)
 
 <br>
 <br>
