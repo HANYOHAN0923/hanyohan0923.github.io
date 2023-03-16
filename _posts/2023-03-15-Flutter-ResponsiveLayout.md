@@ -130,7 +130,8 @@ Widget appBar() {
 <br>
 
 # <b>기기 사이즈 반응형 디자인</b>
-기기 사이즈마다 일괄된 디자인을 적용하기 위한 반응형 디자인을 하기 위해서는 앱이 빌드될 때 기기의 사이즈를 가져와서 계산해서 화면에 그리는 것이 가장 효과적인 방법이다. 이것 역시 `MediaQuery.of(context).size.height/width`를 통해 가져올 수 있다. 간혹 위젯의 사이즈를 가져와서 계산해야하는 경우 `LayoutBuilder()`의 constraints를 통해 알 수 있다.  
+기기 사이즈마다 일괄된 디자인을 적용하기 위한 반응형 디자인을 하기 위해서는 앱이 빌드될 때 기기의 사이즈를 가져와서 계산해서 화면에 그리는 것이 가장 효과적인 방법이다. 이것 역시 `MediaQuery.of(context).size.height/width`를 통해 가져올 수 있다. 간혹 위젯의 사이즈를 가져와서 계산해야하는 경우 `LayoutBuilder()`의 constraints를 통해 알 수 있다. 크기를 계산해야하는 위젯을 `LayoutBuilder()`로 wrapping해주면 된다.  
+
 
 
 - [MediaQuery.of(context).size](https://stackoverflow.com/questions/49704497/how-to-make-flutter-app-responsive-according-to-different-screen-size?rq=1)
