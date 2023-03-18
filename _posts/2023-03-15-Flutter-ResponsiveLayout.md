@@ -153,7 +153,7 @@ AspectRatio클래스를 통해서 자신을 감싸고 있는 부모 위젯이 �
 
 즉 아래 예제를 코드와 결과 화면을 보면알 수 있다. `AspectRatio()`의 부모 위젯은 `Center()`이다. `Center()`는 자식을 화면의 가장 가운데에 위치시키는 속성만 갖고 있고, 넓이와 높이에 대한 제한을 두지 않는다. 따라서 `Center()`의 자식이 갖을 수 있는 최대 넓이와 높이는 디바이스의 높넓이와 동일하다. `AspectRatio()`의 aspectRatio는 자식 위젯의 비율을 1대1로 하기 위해 1 /1을 인수로 받았다. 따라서 `AspectRatio()`의 자식 `Container()`의 크기는 디바이스의 높넓이의 1대1비율(높이 = 넓이, 정사각형)만큼 갖게 된다.  
 
-
+![result](https://i.imgur.com/0cy5St3.png)
 ```dart
 Center(
  child: AspectRatio(
