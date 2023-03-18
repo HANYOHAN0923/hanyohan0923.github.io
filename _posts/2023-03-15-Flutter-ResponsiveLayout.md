@@ -204,7 +204,6 @@ class ResponsiveHomeLayout extends StatelessWidget {
     );
   }
 }
-
 ```
 
 <br>
