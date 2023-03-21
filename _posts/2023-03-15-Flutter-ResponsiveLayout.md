@@ -3,7 +3,7 @@ title: Flutter Responsive / Adaptive Layout - 반응형 디자인
 author: gksdygks2124
 date: 2023-03-15 09:53:00 +0900
 categories: [Flutter, ETC]
-tags: [Flutter, Responsive Layout, Responsive UI, 반응형 디자인, MediaQuery, LayoutBuilder(), Platform, Landscape, Portrait]
+tags: [Flutter, Responsive Layout, Flutter Adaptive Layout, Responsive UI, 반응형 디자인, MediaQuery, LayoutBuilder(), Platform, Landscape, Portrait]
 lastmode: 2023-03-15 09:53:00
 sitemap:
   changefreq: daily
