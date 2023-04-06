@@ -24,7 +24,7 @@ sitemap:
 http요청을 쉽게 할 수 있게 도와주는 `Future`기반 라이브러리
 <br>
 
-- [intl](https://pub.dev/packages/intl)
+- [intl](https://pub.dev/packages/intl)  
 다국어, 통화, 성별, 날짜, 숫자를 지역이나 국가 혹은 특정 형식에 맞춰 변환을 시켜주는 기능을 제공합니다
 <br>
 <br>
@@ -34,22 +34,22 @@ http요청을 쉽게 할 수 있게 도와주는 `Future`기반 라이브러리
 줄 수에 맞춰서 화면에 렌더링 되는 폰트 사이즈를 자동으로 조절하는 기능을 제공합니다.
 <br>
 
-- [badges](https://pub.dev/packages/badges)
+- [badges](https://pub.dev/packages/badges)  
 앱 내부에서 배지 숫자를 표시하는 기능을 제공합니다.
 <br>
 
-- [countup](https://pub.dev/packages/countup)
+- [countup](https://pub.dev/packages/countup)  
 텍스트(숫자)를 생동감 있게 카운트 업하는 기능을 제공합니다.
 <br>
   
-- [flutter_local_notifications](https://pub.dev/packages/flutter_local_notifications)
+- [flutter_local_notifications](https://pub.dev/packages/flutter_local_notifications)  
 앱이 백그라운드에서 실행되면서 유저에게 다양한 알림 기능을 제공합니다. (기기의 바탕화면에서 앱을 볼 때 배지 알림 개수에 따라 배지 숫자가 보이는 것, 알림 팝업 따위)
   - [좋은 참고 글](https://doitduri.tistory.com/25)
 <br>
 
 - [flutter_native_splash](https://pub.dev/packages/flutter_native_splash)  
 앱을 실행했을 때 스플래시 화면(흔히 앱을 실행했을 때 브랜드 로고 이미지 혹은 에니메이션과 함께 로딩을 하는 화면)을 제공합니다.
-  - 번외) [animated_splash_screen](https://pub.dev/packages/animated_splash_screen) 스플래시 화면에 에니메이션을 적용할 수 있는 화면(단순 에니메이션)
+  - 번외) [animated_splash_screen](https://pub.dev/packages/animated_splash_screen)   스플래시 화면에 에니메이션을 적용할 수 있는 화면(단순 에니메이션)
 <br>
 
 - [flutter_Screenutil](https://pub.dev/packages/flutter_screenutil)  
@@ -68,7 +68,7 @@ http요청을 쉽게 할 수 있게 도와주는 `Future`기반 라이브러리
 굳이 DB에 저장할 필요 없는 간단하거나, 사소한 설정 값을 앱 내부 파일에 읽고, 저장하고, 수정하고, 삭제할 수 있는 기능을 제공합니다. 다만 앱 캐시를 삭제하거나, 앱을 재설치하면 기존의 정보들은 유지되지 않습니다.
 <br>
 
-- [slide_countdown](https://pub.dev/packages/slide_countdown)
+- [slide_countdown](https://pub.dev/packages/slide_countdown)  
 카운트다운 기능 및 다양한 카운트다운 UI를 제공합니다.
 <br>
 
