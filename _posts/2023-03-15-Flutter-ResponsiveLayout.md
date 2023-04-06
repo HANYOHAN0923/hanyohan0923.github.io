@@ -92,6 +92,26 @@ Flutter 내부 MediaQuery객체`MediaQuery.of(context).orientation`를 통해 �
 ```
 
 <br>
+
+### <b>조금 더 가독성 있게 수정하기</b>  
+위에서는 핸드폰 방향에 따라 위젯을 하나씩 수정했다면, 위젯을 리턴하는 method형식으로 렌더링하는 대상을 통째로 바꾸는 것이다
+```dart
+Widget _buildLandscapeContent() {
+  return ;
+}
+
+Widget _buildPortraitContent() {
+  return ;
+}
+
+return Scaffold(
+  body: isPortrait
+    ? _buildPortraitContent
+    : _buildLandscapeContent
+);
+```
+
+<br>
 <br>
 
 # <b>OS 반응형 디자인</b>
