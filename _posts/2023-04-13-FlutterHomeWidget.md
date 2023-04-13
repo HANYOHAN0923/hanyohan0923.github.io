@@ -19,7 +19,8 @@ sitemap:
 1) 홈 위젯의 이름은 앱 이름과 동일합니다.
 2) ios - 앱 외부 홈화면에서 빌드되는 위젯과 14pro 이상의 모델에서 지원하는 다이나믹 아일랜드를 구현하려면 확실하게 iOS의 native(Swift)를 어느 정도 알고 있어야 합니다.
 3) Andorid - 이 운영체제 또한 Android의 native(kotlin or Java)에 대한 지식이 필요합니다.  
-<img src="https://i.imgur.com/YQ36LSI.mp4">
+![Screen Recording 2023-04-13 at 4 04 19 PM_1-min](https://user-images.githubusercontent.com/92556048/231695636-d50fea44-cff7-4468-8b59-71d3eb86d132.gif)
+![2-min](https://user-images.githubusercontent.com/92556048/231685097-621c0a2f-04cd-4b4c-8cd3-438950c60e54.gif)
 
 <br>
 <br>
