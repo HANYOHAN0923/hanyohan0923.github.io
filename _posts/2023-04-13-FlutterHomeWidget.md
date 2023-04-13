@@ -15,13 +15,17 @@ sitemap:
 
 <br>
 
-## <b>알아두어야할 점</b>
-앱 외부 홈화면에서 빌드되는 위젯과 14pro 이상의 모델에서 지원하는 다이나믹 아일랜드를 구현하려면 확실하게 iOS의 native(Swift)를 어느 정도 알고 있어야 합니다.
+### <b>알아두어야할 점</b>
+1) 홈 위젯의 이름은 앱 이름과 동일합니다.
+2) ios - 앱 외부 홈화면에서 빌드되는 위젯과 14pro 이상의 모델에서 지원하는 다이나믹 아일랜드를 구현하려면 확실하게 iOS의 native(Swift)를 어느 정도 알고 있어야 합니다.
+3) Andorid - 이 운영체제 또한 Android의 native(kotlin or Java)에 대한 지식이 필요합니다.  
+<img src="https://i.imgur.com/YQ36LSI.mp4">
 
 <br>
 <br>
 
-# <b>Flutter - main.dart</b>  
+# <b>iOS</b>
+## <b>Flutter - main.dart</b>  
 
 ```dart
 import 'dart:convert';
@@ -84,7 +88,7 @@ class WidgetData {
 const List<String> DUMMY_DATA = ["apple", "banana", "samsung?", "dogdrip"];
 ```
 
-# <b>Xcode - Swift</b>
+## <b>Xcode - Swift</b>
 - <b>STEP1. flutter 프로젝트 안 ios디렉토리를 Xcode로 열고 하단의 "+"버튼 혹은 File > New > Target 클릭</b>
 <img src="https://i.imgur.com/JJHKm5H.png">
 
@@ -116,10 +120,13 @@ const List<String> DUMMY_DATA = ["apple", "banana", "samsung?", "dogdrip"];
 
 <br>
 
-- <b>STEP7. 가장 좌측 프로젝트 디렉토리에 위에서 만든 확장 위젯 디렉토리가 생겼는데 Bundle이 "안" 적힌 Swift파일 선택 및 수정 후 앱 재실행</b>
+- <b>STEP7. 가장 좌측 프로젝트 디렉토리에 위에서 만든 확장 위젯 디렉토리가 생겼는데 Bundle이 "안" 적힌 Swift파일 선택 및 수정 후 앱 재실행</b>  
+
 <img width="260" alt="Screenshot 2023-04-13 at 3 30 41 PM" src="https://user-images.githubusercontent.com/92556048/231675157-695d63f4-277f-4da3-b322-7902cad8fb9c.png">
 
-```Swift
+<br>
+
+```swift
 //
 //  ios_widget_flutter.swift
 //  ios widget flutter
@@ -181,3 +188,10 @@ struct iosWidgetView: View {
 }
 
 ```
+
+<br>
+<br>
+<br>
+
+# <b>Android</b>
+추후 추가 예정
