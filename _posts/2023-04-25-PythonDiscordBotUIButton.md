@@ -1,5 +1,5 @@
 ---
-title: 디스코드 봇에 버튼 기능 추가하기
+title: 디스코드 봇에 유저와 상호작용하는 버튼 기능 추가하기
 author: gksdygks2124
 date: 2023-04-25 23:18:00 +0900
 categories: [Python, Discord Bot]
