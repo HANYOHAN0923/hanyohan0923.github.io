@@ -13,7 +13,7 @@ sitemap:
 
 
 ```python
-class SimpleView(discord.ui.View):
+class ButtonView(discord.ui.View):
     isClicked : bool = None
 
     # 버튼 비활성화 함수
@@ -28,14 +28,14 @@ class SimpleView(discord.ui.View):
 
     # 버튼 1
     @discord.ui.button(label="Pass", style=discord.ButtonStyle.success)
-    async def hello(self, interaction: discord.Interaction, button: discord.ui.Button,):
+    async def button1(self, interaction: discord.Interaction, button: discord.ui.Button,):
         await interaction.response.send_message("Pass") # 텍스트 뿐만 아니라 send_message()의 인자로 embed = embed를 통해서 임베드도 전송이 가능하다.
         self.isClicked = True
         self.stop()
 
     # 버튼 2
     @discord.ui.button(label="Deny", style=discord.ButtonStyle.red)
-    async def cancel(self, interaction: discord.Interaction, button: discord.ui.Button,):
+    async def button2(self, interaction: discord.Interaction, button: discord.ui.Button,):
         await interaction.response.send_message("Deny")
         self.isClicked = False
         self.stop()
@@ -43,7 +43,7 @@ class SimpleView(discord.ui.View):
 
 @bot.command()
 async def 버튼(ctx):
-    view = SimpleView(timeout=3)
+    view = ButtonView(timeout=5) # 5초 지나면 타임아웃 활성화
     message = await ctx.send(view=view)
     view.message = message # 클래스에서 self를 통해 message인수를 받아오기 위함
     await view.wait() # 버튼 응답 처리
