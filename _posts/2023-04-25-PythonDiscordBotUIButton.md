@@ -27,11 +27,13 @@ class ButtonView(discord.ui.View):
         await self.disable_all_items()
 
     # 버튼 1
+    # label => 버튼에 보여지는 이름
+    # style => button 스타일 본문 최상단 링크 참조
     @discord.ui.button(label="Pass", style=discord.ButtonStyle.success)
     async def button1(self, interaction: discord.Interaction, button: discord.ui.Button,):
         await interaction.response.send_message("Pass") # 텍스트 뿐만 아니라 send_message()의 인자로 embed = embed를 통해서 임베드도 전송이 가능하다.
         self.isClicked = True
-        self.stop()
+        self.stop() # 클래스 내부 프로퍼티 값을 변경하고 호출해줘야하는 메서드
 
     # 버튼 2
     @discord.ui.button(label="Deny", style=discord.ButtonStyle.red)
