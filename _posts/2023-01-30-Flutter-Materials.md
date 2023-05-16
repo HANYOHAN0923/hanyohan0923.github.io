@@ -18,7 +18,8 @@ sitemap:
 <br>
 
 ## <b>Related to AppBar</b>
-- [Change AppBar's Drawer Icon](https://stackoverflow.com/questions/59554348/how-can-i-change-drawer-icon-in-flutter)
+- [Change AppBar's Drawer Icon](https://stackoverflow.com/questions/59554348/how-can-i-change-drawer-icon-in-flutter)  
+- [Place AppBar Title in left side](https://stackoverflow.com/questions/58913303/how-to-place-appbar-title-in-left-side-in-flutter)
 
 <br>
 <br>
