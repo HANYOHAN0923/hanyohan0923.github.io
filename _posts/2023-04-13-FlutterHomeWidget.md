@@ -1,5 +1,5 @@
 ---
-title: Flutter Home화면 Widet 만들기 (iOS / Android)
+title: Flutter - 디바이스 홈화면 Widet 만들기 (iOS / Android)
 author: gksdygks2124
 date: 2023-04-13 15:19:00 +0900
 categories: [Flutter, ETC]
